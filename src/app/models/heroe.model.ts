@@ -1,6 +1,6 @@
 export class Heroe {
 
-    id: number;
+    id: string;
     nombre: string;
     bio: string;
     img: string;
