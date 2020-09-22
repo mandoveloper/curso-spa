@@ -22,12 +22,12 @@ export class HeroesComponent implements OnInit {
   // tslint:disable-next-line: typedef
   obtenerHeroes() {
     this.heroes = this.heroesServices.getHeroes();
-    console.log(this.heroes);
+    // console.log(this.heroes);
   }
 
   // tslint:disable-next-line: typedef
   verHeroe(id: number) {
-    console.log(id);
+    // console.log(id);
     return this.router.navigateByUrl(`/heroe/${id}`);
   }
 }

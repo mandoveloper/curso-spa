@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵNOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR } from '@angular/core';
 import { Heroe } from '../models/heroe.model';
 
 @Injectable({
@@ -87,9 +87,23 @@ export class HeroesService {
       }
     });
 
-    // console.log(this.heroe);
     return this.heroe;
 
+  }
+
+  buscarHeroes(termino: string): Heroe[] {
+
+    const arrayHeroe: Heroe[] = [];
+    termino = termino.toLowerCase();
+
+    this.heroes.forEach(heroe => {
+      const nombre = heroe.nombre.toLowerCase();
+
+      if (nombre.indexOf(termino) >= 0) {
+          arrayHeroe.push(heroe);
+      }
+    });
+    return arrayHeroe;
   }
 
 }
