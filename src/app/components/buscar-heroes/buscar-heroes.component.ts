@@ -10,19 +10,26 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BuscarHeroesComponent implements OnInit {
 
   heroes: Heroe[] = [];
+  termino: string;
 
-  constructor(private activatedRoute: ActivatedRoute,  private heroesService: HeroesService) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router  , private heroesService: HeroesService) { }
 
   ngOnInit(): void {
 
 
     this.activatedRoute.params.subscribe( params => {
       this.heroes = this.heroesService.buscarHeroes(params[`termino`]);
+      this.termino = params[`termino`]
       console.log(params[`termino`]);
     });
 
   }
 
+  // tslint:disable-next-line: typedef
+  verHeroe(id: number) {
+    // console.log(id);
+    return this.router.navigateByUrl(`/heroe/${id}`);
+  }
 
 
 }

@@ -1,5 +1,11 @@
-<h1>Héroes <small>Marvel y DC</small></h1>
+<h1>Buscando: <small>{{termino}}</small></h1>
 <hr>
+
+<div *ngIf="heroes.length == 0" class="row">
+    <div class="col">
+        <div class="alert alert-primary">No hay resultados con el termino: {{termino}}</div>
+    </div>
+</div>
 <div class="card-columns">
     <div *ngFor="let heroe of heroes; let i = index" class="card">
         <img [src]="heroe.img" class="card-img-top" alt="heroe.img">
